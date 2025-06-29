@@ -22,13 +22,13 @@ figma.ui.onmessage = ({ type, data }: Message) => {
       createIcons(data as IconConfig)
       break
     case MessageType.STORE:
-      storeIcons(data as IconConfig)
+      void storeIcons(data as IconConfig)
       break
     case MessageType.GET:
-      getStoredIcons()
+      void getStoredIcons()
       break
     case MessageType.REMOVE:
-      removeStoredIcons()
+      void removeStoredIcons()
       break
   }
 }
