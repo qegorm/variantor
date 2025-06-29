@@ -1,0 +1,18 @@
+{
+  "name": "Variantor",
+  "id": "1520757540735434781",
+  "api": "1.0.0",
+  "main": "plugin.js",
+  "ui": "index.html",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
+  "editorType": [
+    "figma"
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "none"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --text-xxs: 0.625rem;
+}
+
+@layer base {
+  body {
+    background: var(--figma-color-bg);
+    color: var(--figma-color-text);
+  }
+}
+
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    @apply appearance-none;
+  }
+}
