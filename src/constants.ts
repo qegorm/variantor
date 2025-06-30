@@ -6,7 +6,7 @@ export const MIN_ICON_PROPERTIES = 2
 
 export const WINDOW_SIZE: WindowSize = {
   width: 350,
-  height: 500,
+  height: 520,
 }
 
 export const DEFAULT_ICON_COLOR = '#000000'

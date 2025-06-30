@@ -14,7 +14,7 @@ export const Switch = ({ checked, className, ...props }: SwitchProps) => {
         type="checkbox"
         checked={checked}
         className={cn(
-          'peer relative h-5 w-8 cursor-pointer appearance-none rounded-full border border-[var(--figma-color-border)] bg-[var(--figma-color-bg-tertiary)] transition-colors checked:bg-[var(--figma-color-bg-brand)] focus:ring-1 focus:ring-[var(--figma-color-bg-brand)] focus:outline-none',
+          'peer relative h-5 w-8 cursor-pointer appearance-none rounded-full border border-[var(--figma-color-border)] bg-[var(--figma-color-bg-tertiary)] transition-colors outline-none checked:bg-[var(--figma-color-bg-brand)] focus-visible:ring-1 focus-visible:ring-[var(--figma-color-bg-brand)]',
           className,
         )}
         {...props}

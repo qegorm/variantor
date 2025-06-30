@@ -14,6 +14,7 @@ import {
   MIN_ICON_PROPERTIES,
 } from '@/constants.ts'
 import { getNumericValue, sendPluginMessage } from '@/utils.ts'
+import { Actions } from '@/ui/components/Actions.tsx'
 
 export default function App() {
   const [iconProperties, setIconProperties] = useState<IconProperties[]>(
@@ -121,7 +122,7 @@ export default function App() {
   }
 
   return (
-    <main className="p-4">
+    <main className="flex h-[calc(100vh-56px)] flex-col overflow-auto p-4">
       <section className="mb-6">
         <h1 className="mb-2 text-xs">Sizes</h1>
         <div className="mr-9 mb-2 flex gap-1">
@@ -175,7 +176,7 @@ export default function App() {
               />
               <div>
                 <Button
-                  variant="danger-outline"
+                  variant="danger-secondary"
                   size="icon"
                   disabled={iconProperties.length <= MIN_ICON_PROPERTIES}
                   onClick={() => removeIconProperty(property.id)}
@@ -204,7 +205,7 @@ export default function App() {
         </ul>
       </section>
       <section className="mb-6">
-        <div className="mb-3 flex items-center justify-between">
+        <div className="mb-3 flex items-center justify-between last:mb-0">
           <div>
             <p className="mb-1 text-xs">Change selection colors</p>
             <p className="text-xxs text-[var(--figma-color-text-secondary)]">
@@ -226,8 +227,8 @@ export default function App() {
           </div>
         )}
       </section>
-      <section className="mb-14">
-        <h1 className="mb-3 text-xs">Component options</h1>
+      <section className="mb-4">
+        <h1 className="mb-2 text-xs">Component options</h1>
         <div className="flex gap-1">
           <div>
             <p className="mb-2 text-xxs text-[var(--figma-color-text-secondary)]">
@@ -258,20 +259,24 @@ export default function App() {
           </div>
         </div>
       </section>
-      <section className="fixed bottom-0 left-0 w-full border-t-[1px] border-[var(--figma-color-border)] bg-[var(--figma-color-bg)] px-4 py-3">
-        <div className="flex gap-1">
-          <Button
-            className="w-full"
-            disabled={!isNodesSelected}
-            onClick={() => createIcons()}
+      <section className="mt-auto">
+        <p className="text-xxs text-[var(--figma-color-text-secondary)]">
+          This plugin is open source and available on{' '}
+          <a
+            href="https://github.com/qegorm/variantor"
+            className="rounded-xs text-[var(--figma-color-text-brand)] underline outline-none focus:ring-1 focus:ring-[var(--figma-color-text-brand)] focus:ring-offset-2"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Create icons
-          </Button>
-          <Button variant="danger" onClick={() => resetToDefaults()}>
-            Reset
-          </Button>
-        </div>
+            GitHub
+          </a>
+        </p>
       </section>
+      <Actions
+        isNodesSelected={isNodesSelected}
+        createIcons={createIcons}
+        resetToDefaults={resetToDefaults}
+      />
     </main>
   )
 }

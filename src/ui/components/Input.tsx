@@ -62,7 +62,7 @@ export const Input = ({
   }
 
   return (
-    <div className="relative flex h-8 items-center rounded-md border border-[var(--figma-color-border)] text-xs focus-within:border-[var(--figma-color-border-selected)]">
+    <div className="relative flex h-8 items-center rounded-md border border-transparent bg-[var(--figma-color-bg-secondary)] text-xs focus-within:border-[var(--figma-color-border-selected)] not-focus-within:hover:border-[var(--figma-color-border)]">
       <input
         type={type}
         value={numeric ? internalValue : value}
