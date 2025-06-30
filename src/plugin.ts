@@ -102,7 +102,7 @@ const storeIcons = async (data: IconConfig) => {
 const getStoredIcons = async () => {
   try {
     const data = await figma.clientStorage.getAsync(CONFIG_STORAGE_KEY)
-    figma.ui.postMessage(data)
+    figma.ui.postMessage({ type: MessageType.GET, data } satisfies Message)
   } catch (error) {
     console.error('Error retrieving stored icons:', error)
     return null

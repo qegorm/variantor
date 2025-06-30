@@ -8,9 +8,7 @@ import {
 
 import { cn } from '@/utils'
 
-const isValidNumericInput = (value: string) => {
-  return /^\d*(?:[.,]\d*)?$/.test(value)
-}
+const isValidNumericInput = (value: string) => /^\d*(?:[.,]\d*)?$/.test(value)
 
 export const Input = ({
   className,

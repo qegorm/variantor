@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/ui/components/Button.tsx'
 import { Switch } from '@/ui/components/Switch.tsx'
 import { Input } from '@/ui/components/Input.tsx'
+import { Actions } from '@/ui/components/Actions.tsx'
 import { Icons } from '@/ui/components/Icons.tsx'
 
 import { ComponentOptions, IconProperties, MessageType } from '@/types.ts'
+import { getNumericValue, sendPluginMessage } from '@/utils.ts'
 import {
   DEFAULT_ICON_PROPERTIES,
   DEFAULT_COMPONENT_OPTIONS,
@@ -13,8 +15,6 @@ import {
   MAX_ICON_PROPERTIES,
   MIN_ICON_PROPERTIES,
 } from '@/constants.ts'
-import { getNumericValue, sendPluginMessage } from '@/utils.ts'
-import { Actions } from '@/ui/components/Actions.tsx'
 
 export default function App() {
   const [iconProperties, setIconProperties] = useState<IconProperties[]>(
@@ -31,28 +31,16 @@ export default function App() {
     sendPluginMessage('get')
     onmessage = (event: MessageEvent) => {
       if (event.data?.pluginMessage) {
-        const {
-          iconProperties,
-          componentOptions,
-          iconColor,
-          changeSelectionColors,
-        } = event.data.pluginMessage
-
-        setIconProperties(iconProperties)
-        setComponentOptions(componentOptions)
-        setIconColor(iconColor || DEFAULT_ICON_COLOR)
-        setChangeSelectionColors(changeSelectionColors)
-      }
-    }
-  }, [])
-
-  useEffect(() => {
-    onmessage = (event: MessageEvent) => {
-      if (event.data?.pluginMessage) {
         const { type, data } = event.data.pluginMessage
 
+        if (type === MessageType.GET) {
+          setIconProperties(data.iconProperties)
+          setComponentOptions(data.componentOptions)
+          setIconColor(data.iconColor || DEFAULT_ICON_COLOR)
+          setChangeSelectionColors(data.changeSelectionColors)
+        }
+
         if (type === MessageType.WATCH) {
-          console.log('Selection:', data)
           setIsNodesSelected(data)
         }
       }

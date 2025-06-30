@@ -2,7 +2,7 @@
   "name": "variantor",
   "type": "module",
   "version": "1.0.0",
-  "description": "Figma Plugin to create icon sizes from single icon",
+  "description": "Figma Plugin for creating icon sizes from single icon",
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -18,6 +18,10 @@
     "name": "Egor Mamykin",
     "email": "egor@egor.me",
     "url": "https://egor.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qegorm/variantor.git"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
