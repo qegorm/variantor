@@ -1,6 +1,7 @@
 # Variantor
 
 **Variantor** is a powerful tool that allows you to quickly and easily generate multiple icon sizes from a single source. It automates the process of scaling and adjusting the outline for each size, saving time and simplifying work on UI kits and design systems.
+To install the plugin, go to the [Figma Community page](https://www.figma.com/community/plugin/1520757540735434781/variantor).
 
 <img src="/.github/assets/cover.png">
 
