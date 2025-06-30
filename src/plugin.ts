@@ -48,9 +48,11 @@ const createIcons = (data: IconConfig) => {
     for (const properties of data.iconProperties) {
       const icon = currentSelection.clone()
 
-      if (icon.type === 'FRAME') {
+      if (icon.type === 'FRAME' || icon.type === 'GROUP') {
         icon.children.forEach((child) => {
           if (child.type !== 'VECTOR') return
+
+          child.name = 'Vector'
 
           if (
             child.constraints.vertical !== 'SCALE' &&
