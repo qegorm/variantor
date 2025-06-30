@@ -1,40 +1,38 @@
-Below are the steps to get your plugin running. You can also find instructions at:
+# Variantor
 
-  https://www.figma.com/plugin-docs/plugin-quickstart-guide/
+**Variantor** is a powerful tool that allows you to quickly and easily generate multiple icon sizes from a single source. It automates the process of scaling and adjusting the outline for each size, saving time and simplifying work on UI kits and design systems.
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+<img src="/.github/assets/cover.png">
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+## What can Variantor do?
+* **Custom sizes and outline thickness:**  
+You can set your own size and outline thickness for each icon version, and Variantor will generate all the options in seconds, freeing you from tedious manual work.
 
-  https://nodejs.org/en/download/
+* **Quick color change**  
+Variantor provides the ability to change fill and stroke colors for all icons at once, which is useful when creating branded color palettes.
 
-Next, install TypeScript using the command:
+* **Flexible component settings**  
+Adjust the margins and spacing of your component to improve its visual appearance. This will make it look more balanced and attractive.
 
-  npm install -g typescript
+* **Simple and intuitive interface**  
+Add, edit, or delete properties in just a couple of clicks. This plugin is useful for both novice designers and professionals working with extensive icon libraries.
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
+## How to build and run this plugin
+Plugin is built using TypeScript and React, and it uses Vite as the build tool.
 
-  npm install --save-dev @figma/plugin-typings
-
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
-
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
-
-For more information, visit https://www.typescriptlang.org/
-
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
-
-We recommend writing TypeScript code using Visual Studio code:
-
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "npm: watch". You will have to do this again every time
-    you reopen Visual Studio Code.
-
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+To build and run this plugin, follow these steps:
+1. Make sure you have Node.js installed on your machine. You can download it from [nodejs.org](https://nodejs.org/).
+2. Clone this repository to your local machine.
+3. Open repository in terminal and run the following command to install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+4. To build the plugin and generate `dist` folder, run the following command:
+   ```bash
+   npm run build
+   ```
+5. To watch for changes and automatically rebuild the plugin, run:
+   ```bash
+   npm run watch
+   ```
+6. To run the plugin, open Figma and go to `Plugins > Development > Import Plugin from Manifest...`, then select the `manifest.json` file in the previously generated `dist` folder.
