@@ -49,10 +49,18 @@ const createIcons = (data: IconConfig) => {
       const icon = currentSelection.clone()
 
       if (icon.type === 'FRAME') {
-        icon.resize(properties.size, properties.size)
-
         icon.children.forEach((child) => {
           if (child.type !== 'VECTOR') return
+
+          if (
+            child.constraints.vertical !== 'SCALE' &&
+            child.constraints.horizontal !== 'SCALE'
+          ) {
+            child.constraints = {
+              vertical: 'SCALE',
+              horizontal: 'SCALE',
+            }
+          }
 
           const hasFills = Array.isArray(child.fills) && child.fills.length > 0
           if (data.iconColor && hasFills) {
@@ -67,6 +75,8 @@ const createIcons = (data: IconConfig) => {
             }
           }
         })
+
+        icon.resize(properties.size, properties.size)
 
         const component = figma.createComponentFromNode(icon)
         component.name = `Size=${properties.name}`
