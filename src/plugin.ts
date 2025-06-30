@@ -35,7 +35,7 @@ figma.ui.onmessage = ({ type, data }: Message) => {
 
 figma.showUI(__html__, { width, height, themeColors: true })
 
-figma.on('selectionchange', () => handleSelectionChange())
+figma.on('selectionchange', handleSelectionChange)
 
 const createIcons = (data: IconConfig) => {
   for (const currentSelection of figma.currentPage.selection) {
