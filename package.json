@@ -2,7 +2,7 @@
   "name": "variantor",
   "type": "module",
   "version": "1.0.0",
-  "description": "Figma Plugin to create icon variants from single icon",
+  "description": "Figma Plugin to create icon sizes from single icon",
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
