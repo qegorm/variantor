@@ -35,10 +35,6 @@ figma.ui.onmessage = ({ type, data }: Message) => {
 
 figma.showUI(__html__, { width, height, themeColors: true })
 
-figma.on('run', () => {
-  setTimeout(handleSelectionChange, 0)
-})
-
 figma.on('selectionchange', () => handleSelectionChange())
 
 const createIcons = (data: IconConfig) => {
