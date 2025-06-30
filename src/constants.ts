@@ -2,7 +2,7 @@ import { IconProperties, WindowSize } from './types.ts'
 
 export const CONFIG_STORAGE_KEY = 'icon-config'
 export const MAX_ICON_PROPERTIES = 7
-export const MIN_ICON_PROPERTIES = 2
+export const MIN_ICON_PROPERTIES = 1
 
 export const WINDOW_SIZE: WindowSize = {
   width: 350,

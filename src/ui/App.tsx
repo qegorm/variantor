@@ -176,9 +176,9 @@ export default function App() {
           ))}
           <div className="mt-2 flex items-center justify-between gap-1">
             <p className="text-xxs text-[var(--figma-color-text-secondary)]">
-              You can add up to 7 icon sizes.
+              Click the plus button to add a new icon size.
               <br />
-              The first two are required, the rest are optional.
+              You can have up to 7 icon sizes.
             </p>
             <div>
               <Button
