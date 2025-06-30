@@ -8,10 +8,11 @@ export const solidPaint = (color: string) => [figma.util.solidPaint(color)]
 
 export const createNewVariantSet = (
   name: string,
+  parent: BaseNode & ChildrenMixin,
   nodes: ComponentNode[],
   options: ComponentOptions,
 ) => {
-  const variantSet = figma.combineAsVariants(nodes, figma.currentPage)
+  const variantSet = figma.combineAsVariants(nodes, parent)
   variantSet.name = name
   variantSet.layoutMode = 'VERTICAL'
   variantSet.layoutSizingHorizontal = 'HUG'

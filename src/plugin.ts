@@ -43,11 +43,11 @@ figma.on('selectionchange', () => handleSelectionChange())
 
 const createIcons = (data: IconConfig) => {
   for (const currentSelection of figma.currentPage.selection) {
+    const icon = currentSelection.clone()
+    const parent = currentSelection.parent ?? figma.currentPage
     const componentNode: ComponentNode[] = []
 
     for (const properties of data.iconProperties) {
-      const icon = currentSelection.clone()
-
       if (icon.type === 'FRAME' || icon.type === 'GROUP') {
         icon.children.forEach((child) => {
           if (child.type !== 'VECTOR') return
@@ -79,6 +79,7 @@ const createIcons = (data: IconConfig) => {
         })
 
         icon.resize(properties.size, properties.size)
+        parent.appendChild(icon)
 
         const component = figma.createComponentFromNode(icon)
         component.name = `Size=${properties.name}`
@@ -88,6 +89,7 @@ const createIcons = (data: IconConfig) => {
 
     createNewVariantSet(
       currentSelection.name,
+      parent,
       componentNode,
       data.componentOptions,
     )
