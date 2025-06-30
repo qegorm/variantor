@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react'
+
 import { cn } from '@/utils'
 
 const isValidNumericInput = (value: string) => {
@@ -76,15 +77,13 @@ export const Input = ({
         maxLength={numeric ? 4 : undefined}
         {...props}
       />
-      {type === 'color' && (
+      {type === 'color' && typeof value === 'string' && (
         <div className="flex gap-2 px-2">
           <div
             className="h-4 w-4 rounded border border-[var(--figma-color-border)]"
-            style={{
-              background: typeof value === 'string' ? value : undefined,
-            }}
+            style={{ background: value }}
           />
-          <p>{value}</p>
+          {value.slice(1).toUpperCase()}
         </div>
       )}
     </div>
