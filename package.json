@@ -5,12 +5,12 @@
   "description": "Figma plugin for creating multiple icon sizes from a single icon",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
     "lint": "eslint --ext .ts,.tsx --ignore-pattern node_modules .",
     "lint:fix": "eslint --ext .ts,.tsx --ignore-pattern node_modules --fix .",
     "watch": "npm run watch:ui & npm run watch:plugin",
     "watch:ui": "npm run build:ui -- --watch",
     "watch:plugin": "npm run build:plugin -- --watch",
+    "build": "npm run build:ui && npm run build:plugin",
     "build:ui": "vite build -c ./vite.config.ui.ts",
     "build:plugin": "vite build -c ./vite.config.plugin.ts"
   },
